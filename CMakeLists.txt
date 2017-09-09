@@ -3,7 +3,6 @@ project(Algorithm)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES
-        backjun/2610.cpp)
+set(SOURCE_FILES backjun/2610.cpp)
 
 add_executable(Algorithm ${SOURCE_FILES})
