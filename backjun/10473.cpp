@@ -24,12 +24,14 @@ typedef struct v{
     double time;
     int idx;
 
-    bool operator < (struct v * comp)
-    {
-        return time < comp->time;
-    }
 } Vertex;
 
+struct comp{
+    bool operator () (struct v * a , struct v * b)
+    {
+        return a->time > b->time;
+    }
+};
 
 
 Vertex * newVertex , * topVertex;
@@ -38,7 +40,7 @@ vector<pair<double , double>> coordination;
 vector<Vertex> CannonInfo;
 vector<vector<double>> CannonsDist;
 
-priority_queue<Vertex *> pq;
+priority_queue<Vertex * , vector<Vertex *> , comp> pq;
 
 int main()
 {

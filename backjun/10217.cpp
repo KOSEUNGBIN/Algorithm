@@ -17,6 +17,7 @@ struct cmp{
     }
 };
 
+
 int T;
 int N , M , K;
 int u  , v , c , d;
@@ -62,7 +63,11 @@ int main()
 
                 for(vector<tuple<int , int , int>>::iterator iter = vertexList[get<0>(cur)].begin() ; iter != vertexList[get<0>(cur)].end() ; ++iter)
                 {
-                    pq.push(make_tuple(get<0>(*iter) , get<1>(*iter) + get<1>(cur) , get<2>(*iter) + get<2>(cur)));
+
+                    if(vertexInfo[get<0>(*iter)] > get<2>(*iter) + get<2>(cur) && M >= get<1>(*iter) + get<1>(cur))
+                    {
+                        pq.push(make_tuple(get<0>(*iter) , get<1>(*iter) + get<1>(cur) , get<2>(*iter) + get<2>(cur)));
+                    }
                 }
             }
 
