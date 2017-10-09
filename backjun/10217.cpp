@@ -32,7 +32,6 @@ vector<vector<tuple<int , int , int>>> vertexList;
 
 priority_queue<tuple<int , int , int> , vector<tuple<int , int , int>> , cmp> pq;
 
-
 int main()
 {
     scanf("%d", &T);
@@ -50,7 +49,6 @@ int main()
         {
             scanf("%d %d %d %d" , &u , &v , &c , &d);
             vertexList[u].push_back(make_tuple(v , c , d));
-
         }
 
         for(vector<tuple<int , int , int> >::iterator iter = vertexList[1].begin() ; iter != vertexList[1].end() ; ++iter)
@@ -62,11 +60,8 @@ int main()
         {
             cur = pq.top(); pq.pop();
 
-
             if((vertexInfo[get<0>(cur)][get<1>(cur)] >= get<2>(cur)) && (M >= get<1>(cur)))
             {
-                vertexInfo[get<0>(cur)][get<1>(cur)] = get<2>(cur);
-
                 for(vector<tuple<int , int , int>>::iterator iter = vertexList[get<0>(cur)].begin() ; iter != vertexList[get<0>(cur)].end() ; ++iter)
                 {
                     if((M >= (get<1>(*iter) + get<1>(cur)) && (vertexInfo[get<0>(*iter)][get<1>(*iter) + get<1>(cur)] > (get<2>(*iter) + get<2>(cur)))))
@@ -76,7 +71,6 @@ int main()
                     }
                 }
             }
-
         }
 
         result = INT_MAX;
@@ -93,9 +87,6 @@ int main()
             printf("%d", result);
         }
         printf("\n");
-
-
-
 
         vertexInfo.clear();
         vertexList.clear();
