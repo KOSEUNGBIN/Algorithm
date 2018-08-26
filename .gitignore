@@ -111,3 +111,5 @@ build
 CMakeLists.txt
 
 # End of https://www.gitignore.io/api/cmake,clion,intellij+all
+
+kakao/*
